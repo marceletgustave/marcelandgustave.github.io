@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Marcel & Gustave</title>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@font-face {
+    font-family:"Teachers";
+    src:url("fonts/Teachers.ttf") format("truetype");
+}
+
+:root {
+
+    --orange:#ffac81;
+    --corail:#ff928b;
+    --rose:#fec3a6;
+    --cream:#efe9ae;
+    --vert:#cdeac0;
+
+    --ink:#40342f;
+    --muted:#75665e;
+    --line:#d9cbbd;
+    --card:#fffaf2;
+
+}
+
+
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+body {
+
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Source Sans 3", sans-serif;
+    padding:40px 20px;
+
+}
+
+
+
+.container {
+
+    max-width:1000px;
+    margin:auto;
+
+}
+
+
+
+/* HEADER */
+
+header {
+
+    margin-bottom:50px;
+
+}
+
+
+.eyebrow {
+
+    font-size:12px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:#c85d58;
+    font-weight:700;
+    margin-bottom:12px;
+
+}
+
+
+
+h1 {
+
+    font-family:"Playfair Display", serif;
+    font-size:3rem;
+    line-height:1.1;
+    font-weight:600;
+    color:#7b423d;
+    margin-bottom:20px;
+
+}
+
+
+h1 em {
+
+    font-style:italic;
+    color:var(--corail);
+    font-weight:400;
+    font-family:"Playfair Display", serif;
+
+}
+
+
+
+.introduction {
+
+    background:#ffe0d4;
+    border-left:5px solid var(--corail);
+    padding:22px 25px;
+    margin-bottom:55px;
+
+}
+
+
+.introduction p {
+
+    font-family:"Playfair Display", serif;
+    font-style:italic;
+    font-size:1.2rem;
+
+}
+
+
+
+/* TITRES */
+
+.section-title {
+
+    font-family:"Playfair Display",serif;
+    font-size:1.5rem;
+    color:#7b423d;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+
+.section-title::after {
+
+    font-family:"Playfair Display",serif;
+    content:"";
+    height:1px;
+    background:var(--line);
+    flex:1;
+
+}
+
+
+
+/* CARTES */
+
+
+.grid {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+
+}
+
+
+@media(max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
+
+.card {
+
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:25px;
+
+    transition:.25s ease;
+
+}
+
+
+
+.card:hover {
+
+    transform:translateY(-5px);
+    border-color:var(--corail);
+
+}
+
+
+
+.card-number {
+
+    font-family:"Teachers",sans-serif;
+    color:#c85d58;
+    font-size:.9rem;
+    margin-bottom:10px;
+
+}
+
+
+
+.card h3 {
+
+    font-family:"Playfair Display",serif;
+    font-size:1.5rem;
+    margin-bottom:12px;
+
+}
+
+
+
+.card p {
+
+    font-family:"Teachers",sans-serif;
+    color:var(--muted);
+    margin-bottom:20px;
+
+}
+
+
+
+.card a {
+
+    font-family:"Teachers",sans-serif;
+    text-decoration:none;
+    color:#7b423d;
+    font-weight:700;
+
+}
+
+
+
+.card a:hover {
+
+    color:var(--corail);
+
+}
+
+
+
+/* couleurs subtiles */
+
+
+.card:nth-child(1){
+
+    border-top:5px solid var(--rose);
+
+}
+
+
+.card:nth-child(2){
+
+    border-top:5px solid var(--corail);
+
+}
+
+
+.card:nth-child(3){
+
+    border-top:5px solid var(--vert);
+
+}
+
+
+
+/* FOOTER */
+
+
+footer {
+
+    margin-top:70px;
+    text-align:center;
+    color:var(--muted);
+    font-size:.85rem;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+
+<header>
+
+<p class="eyebrow">
+Accueil
+</p>
+
+
+<h1>
+Marcel & <em>Gustave</em>
+</h1>
+
+
+<p>
+"Il n'y a pas de réussite facile ni d'échecs définitifs." -- Marcel Proust
+</p>
+
+
+</header>
+
+
+
+<section class="introduction">
+
+<p>
+Bienvenue dans cet espace consacré aux œuvres étudiées au lycée :
+séquences, analyses, méthodes et ressources pour accompagner
+le parcours des élèves.
+</p>
+
+</section>
+
+
+
+<h2 class="section-title">
+Mes enseignements
+</h2>
+
+
+
+<section class="grid">
+
+
+
+<div class="card">
+
+<p class="card-number">
+01 · Lycée
+</p>
+
+
+<h3>
+Secondes
+</h3>
+
+
+<p>
+Séquences, lectures cursives et activités autour des grands genres littéraires.
+</p>
+
+
+<a href="seconde.html">
+→ Découvrir les cours
+</a>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<p class="card-number">
+02 · Baccalauréat
+</p>
+
+
+<h3>
+Premières générales
+</h3>
+
+
+<p>
+Œuvres au programme, parcours associés, méthodes du commentaire et de la dissertation.
+</p>
+
+
+<a href="premiere.html">
+→ Découvrir les œuvres
+</a>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<p class="card-number">
+03 · Spécialité
+</p>
+
+
+<h3>
+HLP
+</h3>
+
+
+<p>
+Humanités, littérature et philosophie : textes, notions et réflexions.
+</p>
+
+
+<a href="hlp.html">
+→ Découvrir HLP
+</a>
+
+
+</div>
+
+
+
+</section>
+
+
+
+<footer>
+
+<p>
+© 2026 — Marcel & Gustave
+</p>
+
+</footer>
+
+
+
+</div>
+
+
+</body>
+
+</html>
