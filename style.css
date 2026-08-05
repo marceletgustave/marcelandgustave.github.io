@@ -938,3 +938,146 @@ grid-template-columns:1fr;
     justify-content:center;
 
 }
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    position:relative;
+
+    margin:35px 0 50px;
+
+}
+
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:20px;
+
+    left:8%;
+
+    right:8%;
+
+    height:2px;
+
+    background:var(--line);
+
+    z-index:0;
+
+}
+
+
+.timeline-step{
+
+    flex:1;
+
+    position:relative;
+
+    text-align:center;
+
+    z-index:2;
+
+}
+
+
+.timeline-step span{
+
+    width:48px;
+
+    height:48px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:white;
+
+    border:2px solid var(--line);
+
+    transition:.35s;
+
+}
+
+
+.timeline-step p{
+
+    margin-top:10px;
+
+    font-size:.82rem;
+
+    color:var(--muted);
+
+}
+
+
+.timeline-icon{
+
+    width:22px;
+
+    height:22px;
+
+}
+
+
+
+/* Séance terminée */
+
+.timeline-step.completed{
+
+    color:var(--corail);
+
+}
+
+.timeline-step.completed span{
+
+    border-color:var(--corail);
+
+}
+
+
+
+/* Séance actuelle */
+
+.timeline-step.current{
+
+    color:var(--corail);
+
+}
+
+.timeline-step.current span{
+
+    border-color:var(--corail);
+
+    transform:scale(1.12);
+
+    box-shadow:0 0 0 8px rgba(255,146,139,.18);
+
+}
+
+
+
+/* Séances à venir */
+
+.timeline-step:not(.completed):not(.current){
+
+    color:#b6b6b6;
+
+}
