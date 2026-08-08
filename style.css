@@ -1889,3 +1889,260 @@ grid-template-columns:1fr;
     }
 
 }
+/* =====================================================
+   CORRECTION MISE EN PAGE — FICHE SECONDE
+   ===================================================== */
+
+/* La fiche doit être verticale et non en grille */
+.page {
+    display: block !important;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 50px 35px;
+}
+
+
+/* Chaque grande section doit occuper toute la largeur */
+.page > header,
+.page > section,
+.page > footer {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Espacement entre les grandes parties */
+.page > section {
+    margin-bottom: 55px;
+}
+
+
+/* En-tête */
+.site-header {
+    margin-bottom: 45px;
+}
+
+
+/* Les titres de section */
+h2.section-title {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Les cartes doivent rester dans leur propre grille */
+.rac-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+}
+
+
+/* Les ressources */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+}
+
+
+/* Les informations de la carte de présentation */
+.infos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+
+/* La progression */
+.progression {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Les séances */
+.seance {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   VERSION MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 30px 18px;
+    }
+
+    .rac-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .infos {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+   ACCORDÉONS DES SÉANCES
+   ===================================================== */
+
+.seance {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color .25s ease;
+}
+
+.seance.open {
+    border-color: var(--rose);
+}
+
+
+.seance-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.num {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--rouge);
+
+    background: var(--rose-pale);
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.head-text {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.head-title {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: var(--ink);
+    margin: 0 0 3px;
+}
+
+
+.head-obj {
+    font-size: .88rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/* Corps fermé par défaut */
+
+.seance-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+}
+
+
+/* Corps ouvert */
+
+.seance.open .seance-body {
+    max-height: 3000px;
+}
+
+
+.seance-inner {
+    padding: 4px 20px 24px 70px;
+    border-top: 1px solid var(--rose-paler);
+}
+
+
+/* =====================================================
+   MASQUE → CIBLE
+   ===================================================== */
+
+.mask-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+
+.mask-icon svg {
+    width: 100%;
+    height: 100%;
+
+    transition:
+        transform .45s cubic-bezier(.4,0,.2,1),
+        opacity .35s ease;
+}
+
+
+.mask-icon .m-closed {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 1;
+
+    transform: rotateY(0deg);
+}
+
+
+.mask-icon .m-open {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+
+    transform: rotateY(180deg);
+}
+
+
+.seance.open .mask-icon .m-closed {
+    opacity: 0;
+
+    transform: rotateY(180deg);
+}
+
+
+.seance.open .mask-icon .m-open {
+    opacity: 1;
+
+    transform: rotateY(0deg);
+}
