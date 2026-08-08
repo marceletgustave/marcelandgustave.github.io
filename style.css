@@ -1081,3 +1081,811 @@ grid-template-columns:1fr;
     color:#b6b6b6;
 
 }
+
+/* =====================================================
+   FICHE SECONDE
+===================================================== */
+
+
+/* -----------------------------------------------------
+   CARTE RETOURNABLE
+----------------------------------------------------- */
+
+.flip-card {
+
+    margin: 45px 0;
+
+    perspective: 1800px;
+
+}
+
+.flip-card-inner {
+
+    position: relative;
+
+    min-height: 430px;
+
+    transition:
+        transform .9s cubic-bezier(.4,0,.2,1);
+
+    transform-style: preserve-3d;
+
+    cursor: pointer;
+
+}
+
+.flip-card.flipped
+.flip-card-inner {
+
+    transform: rotateY(180deg);
+
+}
+
+.flip-front,
+.flip-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    backface-visibility: hidden;
+
+    border: 1px solid var(--line);
+
+}
+
+.flip-front img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* Voile dégradé */
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.15),
+            rgba(255,146,139,.60)
+        );
+
+}
+
+.overlay h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 2.8rem;
+
+    margin: 0 0 10px;
+
+}
+
+.overlay p {
+
+    font-style: italic;
+
+    margin: 0;
+
+}
+
+.flip-back {
+
+    background: var(--card);
+
+    transform: rotateY(180deg);
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+.flip-back h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color: var(--rouge-deep);
+
+    margin: 0 0 15px;
+
+}
+
+.problematique-text {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    font-size: 1.2rem;
+
+    color: var(--ink);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* -----------------------------------------------------
+   INFORMATIONS
+----------------------------------------------------- */
+
+.infos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 12px;
+
+}
+
+.info-card {
+
+    background: var(--rose-paler);
+
+    border-radius: 8px;
+
+    padding: 14px;
+
+}
+
+.info-card h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: .95rem;
+
+    margin: 0 0 5px;
+
+    color: var(--rouge);
+
+}
+
+.info-card p {
+
+    font-size: .88rem;
+
+    margin: 0;
+
+}
+
+
+/* -----------------------------------------------------
+   PROGRESSION
+----------------------------------------------------- */
+
+.progression {
+
+    background: var(--card);
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+
+    padding: 28px;
+
+    margin: 30px 0 50px;
+
+}
+
+.progression-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+}
+
+.progression-header strong {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color: var(--rouge-deep);
+
+    font-size: 1.15rem;
+
+}
+
+.progress-subtitle {
+
+    color: var(--muted);
+
+    font-size: .9rem;
+
+}
+
+.progress-counter {
+
+    color: var(--rouge);
+
+}
+
+.progress-bar {
+
+    height: 10px;
+
+    border-radius: 30px;
+
+    background: var(--rose-pale);
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--corail)
+        );
+
+    border-radius: 30px;
+
+    transition: width .6s ease;
+
+}
+
+.progress-text {
+
+    color: var(--muted);
+
+    font-size: .88rem;
+
+    margin-top: 15px;
+
+}
+
+
+/* -----------------------------------------------------
+   TIMELINE
+----------------------------------------------------- */
+
+.timeline {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
+
+    position: relative;
+
+    margin: 35px 0 20px;
+
+}
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 24px;
+
+    left: 7%;
+
+    right: 7%;
+
+    height: 2px;
+
+    background: var(--line);
+
+    z-index: 0;
+
+}
+
+.timeline-step {
+
+    flex: 1;
+
+    position: relative;
+
+    text-align: center;
+
+    z-index: 2;
+
+}
+
+.timeline-step span {
+
+    width: 48px;
+
+    height: 48px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border: 2px solid var(--line);
+
+    color: var(--muted);
+
+}
+
+.timeline-step p {
+
+    margin-top: 9px;
+
+    font-size: .78rem;
+
+    color: var(--muted);
+
+}
+
+.timeline-icon {
+
+    width: 22px;
+
+    height: 22px;
+
+}
+
+.timeline-step.completed span {
+
+    border-color: var(--corail);
+
+    color: var(--corail);
+
+}
+
+.timeline-step.current span {
+
+    border-color: var(--corail);
+
+    color: var(--corail);
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 0 8px
+        rgba(255,146,139,.16);
+
+}
+
+
+/* -----------------------------------------------------
+   AUTO-ÉVALUATION DES SÉANCES
+----------------------------------------------------- */
+
+.seance-check {
+
+    margin-top: 28px;
+
+    padding: 18px;
+
+    background: var(--rose-paler);
+
+    border-radius: 9px;
+
+}
+
+.check-title {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: var(--rouge-deep);
+
+    margin: 0 0 14px;
+
+}
+
+.check-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin: 9px 0;
+
+    cursor: pointer;
+
+    font-size: .92rem;
+
+}
+
+
+/* Case */
+
+.check-item input {
+
+    appearance: none;
+
+    width: 18px;
+
+    height: 18px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border: 1.5px solid var(--rose);
+
+    border-radius: 4px;
+
+    background: white;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition:
+        background .2s,
+        border-color .2s;
+
+}
+
+
+/* Case cochée */
+
+.check-item input:checked {
+
+    background: var(--corail);
+
+    border-color: var(--corail);
+
+}
+
+
+/* Petite coche */
+
+.check-item input:checked::after {
+
+    content: "✓";
+
+    position: absolute;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    left: 3px;
+
+    top: -1px;
+
+}
+
+
+/* Texte barré légèrement */
+
+.check-item input:checked + span {
+
+    color: var(--muted);
+
+}
+
+
+/* -----------------------------------------------------
+   PROGRESSION DES NOTIONS
+----------------------------------------------------- */
+
+.check-progress {
+
+    margin-top: 18px;
+
+    padding-top: 12px;
+
+    border-top: 1px dashed var(--line);
+
+}
+
+.check-progress-bar {
+
+    height: 7px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.check-progress-fill {
+
+    height: 100%;
+
+    width: 0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--corail)
+        );
+
+    border-radius: 20px;
+
+    transition: width .4s ease;
+
+}
+
+.check-progress-text {
+
+    font-size: .78rem;
+
+    color: var(--muted);
+
+    margin: 7px 0 0;
+
+}
+
+
+/* -----------------------------------------------------
+   CARTES RESSOURCES
+----------------------------------------------------- */
+
+.resource-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 14px;
+
+}
+
+.resource-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--line);
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+}
+
+.resource-card strong {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color: var(--rouge-deep);
+
+}
+
+.resource-card p {
+
+    color: var(--muted);
+
+    font-size: .88rem;
+
+}
+
+.resource-card a {
+
+    color: var(--rouge);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+/* -----------------------------------------------------
+   LECTURE CURSIVE
+----------------------------------------------------- */
+
+.reading-card {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: var(--card);
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+}
+
+.reading-card h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    margin: 3px 0;
+
+    color: var(--ink);
+
+}
+
+.reading-card a {
+
+    color: var(--rouge);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+/* -----------------------------------------------------
+   ÉVALUATION
+----------------------------------------------------- */
+
+.evaluation-card {
+
+    background: var(--rose-paler);
+
+    border-left: 4px solid var(--corail);
+
+    padding: 22px;
+
+    border-radius: 8px;
+
+}
+
+.evaluation-card h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    margin: 5px 0 10px;
+
+}
+
+.evaluation-checklist {
+
+    margin-top: 18px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid var(--line);
+
+}
+
+.evaluation-checklist label {
+
+    display: block;
+
+    margin: 9px 0;
+
+    cursor: pointer;
+
+}
+
+
+/* -----------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .infos {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .resource-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .timeline {
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+    }
+
+    .timeline-step {
+
+        min-width: 100px;
+
+    }
+
+    .timeline::before {
+
+        left: 50px;
+
+        right: 50px;
+
+    }
+
+    .progression-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+    .reading-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
